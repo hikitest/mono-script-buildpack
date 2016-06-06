@@ -41,6 +41,7 @@ cp -p /app/mono/bin/fsharpi /app/mono/bin/fsharpi-heroku
 echo "-----> Setting envvars"
 export PATH="/app/mono/bin:$PATH"
 export LD_LIBRARY_PATH="/app/mono/lib:$LD_LIBRARY_PATH"
+export INCLUDE_PATH="/app/mono/include:$INCLUDE_PATH"
 echo "-----> Importing trusted root certificates"
 mono $MOZROOT --sync --import
 cp -r ~/.config ${BUILD_DIR}/.
