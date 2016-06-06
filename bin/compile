@@ -65,8 +65,8 @@ fi
 
 if [ -f app.fsx ]; then
   echo "-----> Compiling app.fsx"
-  cd /app/mono
-  find . -name fsc.exe
+  cd /app/mono/lib/mono/4.5
+  ls -la
   mono /app/mono/lib/mono/4.5/fsc.exe app.fsx
 elif [ -f *.sln ]; then
    echo "-----> Compiling application"
