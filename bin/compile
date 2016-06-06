@@ -9,6 +9,7 @@ LP_DIR=`cd $(dirname $0); cd ..; pwd`
 set -e
 
 MONO3_VM_BINARY="https://github.com/adamburgess/heroku-buildpack-mono/releases/download/42975530c325/mono-full.tar.xz"
+echo $MONO3_VM_BINARY
 NUGET_BINARY="https://nuget.org/nuget.exe"
 PAKET_BINARY="https://github.com/fsprojects/Paket/releases/download/2.66.9/paket.exe"
 
