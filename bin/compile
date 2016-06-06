@@ -37,15 +37,8 @@ rm -fr /app/vendor/mono
 echo "-----> Linking ${BUILD_DIR}/vendor/mono --> /app"
 ln -s "${BUILD_DIR}/vendor/mono" /app
 
-echo "-----> Start F# installation"
-sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF
-echo "deb http://download.mono-project.com/repo/debian wheezy main" | sudo tee /etc/apt/sources.list.d/mono-xamarin.list
-sudo apt-get update
-sudo apt-get install fsharp
-echo "-----> Complete F# installation"
-
-cp -p /app/mono/bin/fsharpc /app/mono/bin/fsharpc-heroku
-cp -p /app/mono/bin/fsharpi /app/mono/bin/fsharpi-heroku
+#cp -p /app/mono/bin/fsharpc /app/mono/bin/fsharpc-heroku
+#cp -p /app/mono/bin/fsharpi /app/mono/bin/fsharpi-heroku
 
 echo "-----> Setting envvars"
 export PATH="/app/mono/bin:$PATH"
