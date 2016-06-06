@@ -20,7 +20,7 @@ echo "-----> Downloading mono to ${CACHE_DIR}/$STACK/vendor"
 rm -rfv ${CACHE_DIR}/
 if [ ! -d ${CACHE_DIR}/$STACK/vendor/mono ]; then
     mkdir -p ${CACHE_DIR}/$STACK/vendor
-    curl -L $MONO3_VM_BINARY -s | tar zxf - -C ${CACHE_DIR}/$STACK/vendor
+    curl -L $MONO3_VM_BINARY -s | tar xvf - -C ${CACHE_DIR}/$STACK/vendor
     curl $NUGET_BINARY -L -o "${CACHE_DIR}/$STACK/vendor/mono/bin/nuget.exe"
     curl $PAKET_BINARY -L -o "${CACHE_DIR}/$STACK/vendor/mono/bin/paket.exe"
 fi
