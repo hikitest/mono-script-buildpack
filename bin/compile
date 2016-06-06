@@ -19,8 +19,8 @@ XBUILD="${BUILD_DIR}/vendor/mono/lib/mono/4.5/xbuild.exe"
 echo "-----> Removing caches"
 #rm -rfv ${CACHE_DIR}/
 rm -rf ${CACHE_DIR}/$STACK/vendor/mono
-echo "-----> Downloading mono to ${CACHE_DIR}/$STACK/vendor"
 if [ ! -d ${CACHE_DIR}/$STACK/vendor/mono ]; then
+echo "-----> Downloading mono to ${CACHE_DIR}/$STACK/vendor"
     mkdir -p ${CACHE_DIR}/$STACK/vendor
     curl -L $MONO3_VM_BINARY -s | tar Jxf - -C ${CACHE_DIR}/$STACK/vendor
     curl $NUGET_BINARY -L -o "${CACHE_DIR}/$STACK/vendor/mono/bin/nuget.exe"
@@ -65,6 +65,8 @@ fi
 
 if [ -f app.fsx ]; then
   echo "-----> Compiling app.fsx"
+  cd /app/mono
+  find . -name fsc.exe
   mono /app/mono/lib/mono/4.5/fsc.exe app.fsx
 elif [ -f *.sln ]; then
    echo "-----> Compiling application"
